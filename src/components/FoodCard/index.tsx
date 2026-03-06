@@ -1,24 +1,28 @@
+import { useDispatch } from 'react-redux'
 import * as S from './styles'
+import { openModal } from '../../store/reducers/cart'
 
 type Props = {
+  id: number
   foto: string
   nome: string
   descricao: string
+  porcao: string
+  preco: number
 }
 
-const ProductCard = ({ foto, nome, descricao }: Props) => {
-  const getDescricao = (text: string) => {
-    if (text.length > 95) {
-      return text.slice(0, 92) + '...'
-    }
-    return text
+const FoodCard = ({ id, foto, nome, descricao, porcao, preco }: Props) => {
+  const dispatch = useDispatch()
+
+  const handleOpenModal = () => {
+    dispatch(openModal({ id, foto, nome, descricao, porcao, preco }))
   }
 
   return (
-    <S.Card>
+    <S.Card onClick={handleOpenModal}>
       <img src={foto} alt={nome} />
       <S.Titulo>{nome}</S.Titulo>
-      <S.Descricao>{getDescricao(descricao)}</S.Descricao>
+      <S.Descricao>{descricao}</S.Descricao>
       <S.BotaoAdicionar>
         Adicionar ao carrinho
       </S.BotaoAdicionar>
@@ -26,4 +30,4 @@ const ProductCard = ({ foto, nome, descricao }: Props) => {
   )
 }
 
-export default ProductCard
+export default FoodCard

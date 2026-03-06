@@ -25,8 +25,14 @@ export const Titulo = styled.h3`
 export const Descricao = styled.p`
   font-size: 14px;
   line-height: 22px;
-  margin-bottom: 8px;
+  margin-top: 16px;
+  margin-bottom: 16px;
   flex-grow: 1;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 `
 
 export const BotaoAdicionar = styled.button`

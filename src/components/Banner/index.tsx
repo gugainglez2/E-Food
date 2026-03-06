@@ -7,7 +7,7 @@ type Props = {
 }
 
 const Banner = ({ categoria, nome, capa }: Props) => (
-  <S.Imagem foto={capa}>
+  <S.Imagem $foto={capa}>
     <div className="container" style={{ height: '100%' }}>
       <S.Container>
         <S.Categoria>{categoria}</S.Categoria>

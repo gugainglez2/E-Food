@@ -1,9 +1,11 @@
 import * as S from './styles'
 import logo from '../../assets/logo.svg'
 import { Link } from 'react-router-dom'
+import type { RootState } from '../../store'
+import { useSelector } from 'react-redux'
 
 const HeaderPerfil = () => {
-  const itensNoCarrinho = 0
+  const { items } = useSelector((state: RootState) => state.cart)
 
   return (
     <S.HeaderBar>
@@ -11,7 +13,7 @@ const HeaderPerfil = () => {
         <S.Content>
           <Link to="/">Restaurantes</Link>
           <S.Logo src={logo} alt="efood" />
-          <span>{itensNoCarrinho} produto(s) no carrinho</span>
+          <span>{items.length} produto(s) no carrinho</span>
         </S.Content>
       </div>
     </S.HeaderBar>

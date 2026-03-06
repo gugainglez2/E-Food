@@ -9,18 +9,28 @@ type Props = {
   avaliacao: number
   descricao: string
   capa: string
-  infos: string[]
+  tipo: string
+  destacado: boolean
 }
 
-const Product = ({ id, titulo, avaliacao, descricao, capa, infos }: Props) => (
-  <S.Card>
-    <img src={capa} alt={titulo} />
-    <S.TagContainer>
-      {infos.map((info) => (
-        <Tag key={info}>{info}</Tag>
-      ))}
-    </S.TagContainer>
-    <S.CardContent>
+const RestaurantCard = ({ id, titulo, avaliacao, descricao, capa, tipo, destacado }: Props) => {
+  const getTags = () => {
+    const tags = [tipo]
+    if (destacado) {
+      tags.unshift('Destaque da semana')
+    }
+    return tags
+  }
+
+  return (
+    <S.Card>
+      <img src={capa} alt={titulo} />
+      <S.TagContainer>
+        {getTags().map((tag) => (
+          <Tag key={tag}>{tag}</Tag>
+        ))}
+      </S.TagContainer>
+      <S.CardContent>
       <S.TituloContainer>
         <h3>{titulo}</h3>
           <S.AvaliacaoWrapper>
@@ -34,7 +44,8 @@ const Product = ({ id, titulo, avaliacao, descricao, capa, infos }: Props) => (
         Saiba mais
       </ButtonContainer>
     </S.CardContent>
-  </S.Card>
-)
+    </S.Card>
+  )
+}
 
-export default Product
+export default RestaurantCard

@@ -9,11 +9,14 @@ export const ListContainer = styled.section`
   margin-bottom: 120px;
 
   @media (max-width: 1024px) {
+    padding: 0 24px;
     column-gap: 40px;
   }
 
   @media (max-width: 768px) {
     grid-template-columns: 1fr;
-    padding: 0 20px;
+    row-gap: 32px;
+    max-width: 90%;
+    margin-inline: auto;
   }
 `

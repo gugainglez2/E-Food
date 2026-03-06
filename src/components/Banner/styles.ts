@@ -1,13 +1,13 @@
 import styled from 'styled-components'
 
-export const Imagem = styled.div<{ foto: string }>`
+export const Imagem = styled.div<{ $foto: string }>`
   width: 100%;
   height: 280px;
   display: block;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  background-image: url(${(props) => props.foto});
+  background-image: url(${(props) => props.$foto});
   position: relative;
 
   &::after {

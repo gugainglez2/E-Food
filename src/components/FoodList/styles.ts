@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const ListContainer = styled.section`
+export const Container = styled.section`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 32px;
@@ -8,10 +8,12 @@ export const ListContainer = styled.section`
 
   @media (max-width: 1024px) {
     grid-template-columns: 1fr 1fr;
+    padding: 0 32px;
   }
 
   @media (max-width: 768px) {
     grid-template-columns: 1fr;
-    padding: 0 20px;
+    max-width: 90%;
+    margin-inline: auto;
   }
 `

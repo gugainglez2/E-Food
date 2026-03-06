@@ -5,6 +5,7 @@ export const Card = styled.div`
   position: relative;
   display: flex;
   flex-direction: column;
+  height: 100%;
 
   img {
     display: block;
@@ -20,6 +21,10 @@ export const CardContent = styled.div`
   border-bottom: 1px solid ${props => props.theme.colors.rosa};
   border-left: 1px solid ${props => props.theme.colors.rosa};
   background-color: ${props => props.theme.colors.branco};
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  align-items: flex-start;
 `
 
 export const TituloContainer = styled.div`
@@ -29,14 +34,15 @@ export const TituloContainer = styled.div`
   margin-bottom: 16px;
   font-weight: bold;
   font-size: 18px;
+  width: 100%;
 `
 
 export const Descricao = styled.p`
   font-size: 14px;
   line-height: 22px;
-  display: block;
   margin-top: 16px;
   margin-bottom: 16px;
+  flex-grow: 1;
 `
 
 export const TagContainer = styled.div`

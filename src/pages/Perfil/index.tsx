@@ -1,41 +1,30 @@
+import { useParams } from 'react-router-dom'
 import HeaderPerfil from '../../components/HeaderPerfil'
 import Banner from '../../components/Banner'
-import ProductCard from '../../components/FoodCard'
-import * as S from './styles'
+import FoodList from '../../components/FoodList'
+import { useGetRestauranteIdQuery } from '../../services/api'
+import Modal from '../../components/Modal'
 
-const Perfil = () => (
-  <>
-    <HeaderPerfil />
-    <Banner
-      categoria="Italiana"
-      nome="La Dolce Vita Trattoria"
-      capa="https://images.unsplash.com/photo-1546069901-ba9599a7e63c"
-    />
-    <div className="container">
-      <S.ListContainer>
-        <ProductCard
-          nome="Pizza Marguerita"
-          foto="https://images.unsplash.com/photo-1593560708920-61dd98c46a4e"
-          descricao="A clássica pizza italiana com molho de tomate, mussarela de búfala e manjericão fresco."
-        />
-        <ProductCard
-          nome="Pizza Marguerita"
-          foto="https://images.unsplash.com/photo-1593560708920-61dd98c46a4e"
-          descricao="A clássica pizza italiana com molho de tomate, mussarela de búfala e manjericão fresco."
-        />
-        <ProductCard
-          nome="Pizza Marguerita"
-          foto="https://images.unsplash.com/photo-1593560708920-61dd98c46a4e"
-          descricao="A clássica pizza italiana com molho de tomate, mussarela de búfala e manjericão fresco."
-        />
-        <ProductCard
-          nome="Pizza Marguerita"
-          foto="https://images.unsplash.com/photo-1593560708920-61dd98c46a4e"
-          descricao="A clássica pizza italiana com molho de tomate, mussarela de búfala e manjericão fresco."
-        />
-      </S.ListContainer>
-    </div>
-  </>
-)
+const Perfil = () => {
+  const { id } = useParams()
+  const { data: restaurante, isLoading } = useGetRestauranteIdQuery(id!)
+
+  if (isLoading) return <h3>Carregando...</h3>
+
+  if (!restaurante) return <h3>Restaurante não encontrado</h3>
+
+  return (
+    <>
+      <Modal />
+      <HeaderPerfil />
+      <Banner
+        categoria={restaurante.tipo}
+        nome={restaurante.titulo}
+        capa={restaurante.capa}
+      />
+      <FoodList foods={restaurante.cardapio} />
+    </>
+  )
+}
 
 export default Perfil
