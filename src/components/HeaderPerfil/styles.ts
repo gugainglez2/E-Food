@@ -1,10 +1,11 @@
 import styled from 'styled-components'
+import fundoHero from '../../assets/fundo_hero.svg';
 
 export const HeaderBar = styled.header`
   background-color: ${(props) => props.theme.colors.bege};
   padding: 40px 0;
   display: block;
-  background-image: url('/src/assets/fundo_hero.svg');
+  background-image: url(${fundoHero});
   background-size: cover;
   background-repeat: no-repeat;
 `

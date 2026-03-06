@@ -32,10 +32,23 @@ export const ModalContent = styled.div`
   max-width: 960px;
   width: 100%;
 
+  @media (max-width: 768px) {
+    flex-direction: column;
+    max-height: 90vh;
+    overflow-y: auto;
+    padding-inline: 16px;
+    margin-inline: 16px;
+  }
+
   .produto-imagem {
     width: 280px;
     height: 280px;
     object-fit: cover;
+
+    @media (max-width: 768px) {
+      width: 100%;
+      height: 200px;
+    }
   }
 
   h3 {
