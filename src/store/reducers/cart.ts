@@ -21,7 +21,18 @@ const cartSlice = createSlice({
       const item = state.items.find((item) => item.id === action.payload.id)
       if (!item) {
         state.items.push(action.payload)
+      } else {
+        alert('Este item já está no carrinho')
       }
+    },
+    remove: (state, action: PayloadAction<number>) => {
+      state.items = state.items.filter((item) => item.id !== action.payload)
+    },
+    openCart: (state) => {
+      state.isOpen = true
+    },
+    closeCart: (state) => {
+      state.isOpen = false
     },
     openModal: (state, action: PayloadAction<Food>) => {
       state.modalItem = action.payload
@@ -32,5 +43,5 @@ const cartSlice = createSlice({
   }
 })
 
-export const { add, openModal, closeModal } = cartSlice.actions
+export const { add, remove, openCart, closeCart, openModal, closeModal } = cartSlice.actions
 export default cartSlice.reducer

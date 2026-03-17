@@ -4,6 +4,7 @@ import Banner from '../../components/Banner'
 import FoodList from '../../components/FoodList'
 import { useGetRestauranteIdQuery } from '../../services/api'
 import Modal from '../../components/Modal'
+import Cart from '../../components/Cart'
 
 const Perfil = () => {
   const { id } = useParams()
@@ -17,6 +18,7 @@ const Perfil = () => {
     <>
       <Modal />
       <HeaderPerfil />
+      <Cart />
       <Banner
         categoria={restaurante.tipo}
         nome={restaurante.titulo}

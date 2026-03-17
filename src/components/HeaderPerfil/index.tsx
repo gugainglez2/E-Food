@@ -1,10 +1,13 @@
+import { useDispatch, useSelector } from 'react-redux'
+import { Link } from 'react-router-dom'
+
 import * as S from './styles'
 import logo from '../../assets/logo.svg'
-import { Link } from 'react-router-dom'
 import type { RootState } from '../../store'
-import { useSelector } from 'react-redux'
+import { openCart } from '../../store/reducers/cart'
 
 const HeaderPerfil = () => {
+  const dispatch = useDispatch()
   const { items } = useSelector((state: RootState) => state.cart)
 
   return (
@@ -13,7 +16,9 @@ const HeaderPerfil = () => {
         <S.Content>
           <Link to="/">Restaurantes</Link>
           <S.Logo src={logo} alt="efood" />
-          <span>{items.length} produto(s) no carrinho</span>
+          <span onClick={() => dispatch(openCart())} style={{ cursor: 'pointer' }}>
+            {items.length} produto(s) no carrinho
+          </span>
         </S.Content>
       </div>
     </S.HeaderBar>
