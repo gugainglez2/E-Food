@@ -39,9 +39,12 @@ const cartSlice = createSlice({
     },
     closeModal: (state) => {
       state.modalItem = null
+    },
+    clear: (state) => {
+      state.items = []
     }
   }
 })
 
-export const { add, remove, openCart, closeCart, openModal, closeModal } = cartSlice.actions
+export const { add, remove, openCart, closeCart, openModal, closeModal, clear } = cartSlice.actions
 export default cartSlice.reducer
