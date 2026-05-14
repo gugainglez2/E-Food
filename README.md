@@ -1,73 +1,82 @@
-# React + TypeScript + Vite
+<div align="center">
+  <img src="./public/demo.gif" alt="Demonstração Animada do Efood" width="800">
+</div>
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# 🍴 efood - Delivery de Gastronomia
 
-Currently, two official plugins are available:
+O **efood** é uma plataforma de delivery de comida focada em restaurantes selecionados, oferecendo uma experiência de compra fluida desde a seleção de pratos até o checkout final. 
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Este projeto foi desenvolvido como parte do curso de Desenvolvedor Front-end da **EBAC (Escola Britânica de Artes Criativas e Tecnologia)**.
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🚀 Tecnologias Utilizadas
 
-## Expanding the ESLint configuration
+O projeto utiliza o que há de mais moderno no ecossistema React para garantir performance, tipagem estática e gerenciamento de estado eficiente:
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+*   **React** (com Hooks e Functional Components)
+*   **TypeScript** (Garantindo segurança de tipos em toda a aplicação)
+*   **Redux Toolkit** (Gerenciamento de estado global para o Carrinho e Modais)
+*   **RTK Query** (Consumo de API, cache e mutações de dados)
+*   **Styled Components** (Estilização baseada em componentes e CSS-in-JS)
+*   **Formik & Yup** (Criação de formulários complexos com validações rigorosas)
+*   **React Router Dom** (Navegação entre Home e Perfil de Restaurantes)
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+---
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## 🛠️ Funcionalidades Principais
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+### 1. Catálogo de Restaurantes
+*   Listagem dinâmica consumindo API oficial.
+*   Página de detalhes para cada restaurante com cardápio específico.
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### 2. Gerenciamento de Carrinho (Redux)
+*   Adição de pratos via modal de detalhes.
+*   Remoção de itens diretamente na Sidebar do carrinho.
+*   Cálculo automático de valor total.
+*   Persistência de interface (o carrinho mantém os itens enquanto o usuário navega).
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### 3. Fluxo de Checkout Inteligente
+*   **Persistência de Dados:** O formulário mantém as informações de entrega e pagamento mesmo se o usuário voltar para adicionar mais pratos.
+*   **Validação em Tempo Real:** Feedback visual para o usuário (campos obrigatórios, formato de CEP e cartão) utilizando Yup.
+*   **Integração com API:** Envio dos dados de pedido via método POST e recebimento de ID de confirmação.
+*   **Feedback de Sucesso:** Tela de confirmação personalizada após a resposta do servidor.
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+### 4. Responsividade
+*   Interface adaptável para dispositivos móveis, tablets e desktop.
+*   Modais e Sidebar do carrinho otimizados para telas pequenas.
+
+---
+
+## 📦 Como rodar o projeto
+
+1.  Clone este repositório:
+    ```bash
+    git clone [https://github.com/seu-usuario/efood.git](https://github.com/seu-usuario/efood.git)
+
+2. Instale as dependências:
+   ```bash
+   npm install
+
+3. Inicie o servidor de desenvolvimento:
+   ```bash
+   npm run dev
+
+4. Para gerar a versão de produção (build):
+    ```bash
+    npm run build
+
+---
+
+📄 Licença
+Este projeto foi desenvolvido para fins educacionais.
+
+---
+
+## 👨‍💻 Autor
+**Gustavo Inglez**
+
+*   **LinkedIn:** [linkedin.com/in/gustavo-inglez](https://www.linkedin.com/in/gustavo-inglez/)
+*   **GitHub:** [github.com/gugainglez2](https://github.com/gugainglez2)
+
+---
